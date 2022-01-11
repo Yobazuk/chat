@@ -36,4 +36,12 @@
 
         window.location.replace('chatroom' + '/?username=' + userName);
     };
+
+    const input = document.querySelector('#username-input');
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.querySelector('#username-submit').click();
+      }
+    });
 {% endblock script %}
