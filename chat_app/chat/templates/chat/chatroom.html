@@ -73,6 +73,14 @@
         console.log('The socket close unexpectedly');
     };
 
+    const input = document.querySelector('#chat-message-input');
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.querySelector('#chat-message-submit').click();
+      }
+    });
+
     document.querySelector('#chat-message-submit').onclick = function(e) {
         const messageInputDom = document.querySelector('#chat-message-input');
         const message = messageInputDom.value;
