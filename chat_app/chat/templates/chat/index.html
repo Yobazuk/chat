@@ -1,0 +1,39 @@
+{% extends "chat/base.html" %}
+
+{% block header-text %}
+    <p class="title">
+        Real-Time Chat
+    </p>
+    <p class="subtitle">
+        To join the chatroom, please enter a username
+    </p>
+{% endblock header-text %}
+
+{% block body %}
+    <div class="column is-4 is-offset-4">
+
+        <div class="field">
+            <label>Username</label>
+
+            <div class="control">
+                <input class="input" type="text" placeholder="Username" id="username-input">
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <a class="button is-info" id="username-submit">Submit</a>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+{% block script %}
+    document.querySelector('#username-input').focus();
+
+    document.querySelector('#username-submit').onclick = function(e) {
+        var userName = document.querySelector('#username-input').value;
+
+        window.location.replace('chatroom' + '/?username=' + userName);
+    };
+{% endblock script %}
