@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Message
 
 
 def index(request):
@@ -7,4 +8,6 @@ def index(request):
 
 def chatroom(request):
     username = request.GET.get('username', 'Unknown')
-    return render(request, 'chat/chatroom.html', {'username': username})
+    messages = Message.objects.all()
+
+    return render(request, 'chat/chatroom.html', {'username': username, 'messages': messages})
